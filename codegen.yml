@@ -1,0 +1,14 @@
+schema: https://current--pagila-test-api.apollographos.net/graphql
+documents: 'src/**/*.tsx'
+generates:
+  ./types.ts:
+    plugins:
+      - typescript
+  ./:
+    preset: near-operation-file
+    presetConfig:
+      extension: .generated.tsx
+      baseTypesPath: types.ts
+    plugins:
+      - typescript-operations
+      - typed-document-node
